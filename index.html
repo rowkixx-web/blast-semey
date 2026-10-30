@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLAST Barbershop | Семей</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0b0b0b; color: #f5f5f5; line-height: 1.6; }
+        header { background: #121212; padding: 20px; text-align: center; border-bottom: 2px solid #222; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 28px; font-weight: 900; letter-spacing: 2px; color: #fff; text-transform: uppercase; }
+        .logo span { color: #f39c12; }
+        .badge-container { display: flex; justify-content: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+        .badge { background: #1a1a1a; padding: 5px 12px; border-radius: 20px; font-size: 12px; color: #bbb; border: 1px solid #333; }
+        .hero { padding: 40px 20px; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=80') center/cover; }
+        .hero h1 { font-size: 32px; margin-bottom: 15px; color: #fff; text-transform: uppercase; }
+        .hero p { color: #ccc; margin-bottom: 25px; font-size: 16px; }
+        .btn { display: inline-block; background: #f39c12; color: #000; padding: 12px 30px; border-radius: 30px; font-weight: bold; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4); }
+        .btn:active { transform: scale(0.95); }
+        .section { padding: 30px 20px; max-width: 600px; margin: 0 auto; }
+        .section h2 { text-align: center; margin-bottom: 20px; font-size: 22px; border-bottom: 2px solid #222; padding-bottom: 10px; color: #fff; }
+        .price-item { display: flex; justify-content: space-between; background: #161616; padding: 15px 20px; margin-bottom: 10px; border-radius: 10px; border: 1px solid #222; }
+        .price-name { font-weight: 600; }
+        .price-cost { color: #f39c12; font-weight: bold; }
+        .booking-form { background: #161616; padding: 20px; border-radius: 15px; border: 1px solid #222; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-size: 14px; color: #aaa; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; background: #0b0b0b; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 16px; }
+        .submit-btn { width: 100%; background: #25D366; color: #fff; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
+        footer { text-align: center; padding: 20px; color: #666; font-size: 12px; border-top: 1px solid #222; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Blast <span>Barbershop</span></div>
+        <div class="badge-container">
+            <div class="badge">📍 Семей, ул. Шакарима 1</div>
+            <div class="badge">⚽ Партнер FC Semey</div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Стиль начинается здесь</h1>
+        <p>Профессиональные стрижки, оформление бороды и хим. завивка в Семее</p>
+        <a href="#book" class="btn">Записаться онлайн</a>
+    </div>
+
+    <div class="section">
+        <h2>Наши услуги и цены</h2>
+        <div class="price-item"><span class="price-name">Мужская стрижка</span><span class="price-cost">4500 ₸</span></div>
+        <div class="price-item"><span class="price-name">Стрижка + Борода</span><span class="price-cost">6500 ₸</span></div>
+        <div class="price-item"><span class="price-name">Химическая завивка</span><span class="price-cost">12000 ₸</span></div>
+        <div class="price-item"><span class="price-name">Детская стрижка</span><span class="price-cost">4000 ₸</span></div>
+    </div>
+
+    <div class="section" id="book">
+        <h2>Онлайн-бронирование</h2>
+        <div class="booking-form">
+            <div class="form-group">
+                <label>Ваше имя:</label>
+                <input type="text" id="clientName" placeholder="Введите имя">
+            </div>
+            <div class="form-group">
+                <label>Выберите услугу:</label>
+                <select id="clientService">
+                    <option value="Мужская стрижка (4500 ₸)">Мужская стрижка — 4500 ₸</option>
+                    <option value="Стрижка + Борода (6500 ₸)">Стрижка + Борода — 6500 ₸</option>
+                    <option value="Хим. завивка (12000 ₸)">Химическая завивка — 12000 ₸</option>
+                    <option value="Детская стрижка (4000 ₸)">Детская стрижка — 4000 ₸</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Удобное время:</label>
+                <input type="text" id="clientTime" placeholder="Например: Завтра в 15:00">
+            </div>
+            <button class="submit-btn" onclick="sendToWhatsApp()">Забронировать в WhatsApp</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 BLAST Barbershop. Официальный демо-сайт</p>
+    </footer>
+
+    <script>
+        function sendToWhatsApp() {
+            const name = document.getElementById('clientName').value;
+            const service = document.getElementById('clientService').value;
+            const time = document.getElementById('clientTime').value;
+            
+            if(!name || !time) {
+                alert('Пожалуйста, введите имя и желаемое время!');
+                return;
+            }
+
+            const phone = "77777777777";
+            const message = `Здравствуйте! Я хочу записаться через сайт.%0A👤 Имя: ${name}%0A✂️ Услуга: ${service}%0A⏰ Время: ${time}`;
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
